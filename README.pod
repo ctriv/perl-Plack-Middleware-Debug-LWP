@@ -1,0 +1,50 @@
+=pod
+
+=head1 NAME
+
+Plack::Middleware::Debug::LWP - LWP Profiling Panel
+
+=head1 VERSION
+
+version 0.1
+
+=head1 SYNOPSIS
+
+	enable 'Debug::LWP';
+
+=head1 DESCRIPTION
+
+This module provides a panel for the L<Plack::Middleware::Debug> that gives
+profiling information for L<LWP::UserAgent> requests.
+
+=head1 TODO
+
+=over 2
+
+=item *
+
+The docs are pretty middling at the moment.
+
+=back
+
+=head1 AUTHORS
+
+    Chris Reinhardt
+    crein@cpan.org
+
+    Mark Ng
+    cpan@markng.co.uk   
+    
+=head1 COPYRIGHT
+
+This program is free software; you can redistribute
+it and/or modify it under the same terms as Perl itself.
+
+The full text of the license can be found in the
+LICENSE file included with this module.
+
+=head1 SEE ALSO
+
+L<Plack::Middleware::Debug>, L<LWP::UserAgent>, L<LWPx::Profile>, perl(1)
+
+=cut
