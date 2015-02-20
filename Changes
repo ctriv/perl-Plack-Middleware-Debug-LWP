@@ -1,3 +1,6 @@
 Revision history for Plack-Middleware-Debug-LWP
 
 {{$NEXT}}
+
+0.1 Fri Feb 20 2015
+	Initial release.
