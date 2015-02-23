@@ -1,6 +1,8 @@
 Revision history for Plack-Middleware-Debug-LWP
 
 {{$NEXT}}
+
+0.2 Mon Feb 23 2015
 	Fix formatting to be more readable.
 	
 0.1 Fri Feb 20 2015
