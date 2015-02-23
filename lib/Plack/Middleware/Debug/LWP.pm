@@ -23,6 +23,28 @@ profiling information for L<LWP::UserAgent> requests.
 
 
  
+my $lwp_template = __PACKAGE__->build_template(<<'ENDOFIT');
+<table>
+    <thead>
+        <tr>
+            <th>Request</th>
+            <th>Timing</th>
+        </tr>
+    </thead>
+    <tbody>
+% my $i;
+% while (@{$_[0]->{list}}) {
+% my($key, $value) = splice(@{$_[0]->{list}}, 0, 2);
+            <tr class="<%= ++$i % 2 ? 'plDebugOdd' : 'plDebugEven' %>">
+                <td><pre><%= $key %></pre></td>
+                <td><%= $value %></td>
+            </tr>
+% }
+    </tbody>
+</table>
+ENDOFIT
+
+ 
 sub run {
 	my($self, $env, $panel) = @_;
 	
@@ -36,7 +58,6 @@ sub run {
 		my @lines;
 		my ($time, $requests);
 		while (my ($req, $stats) = each %$profile) {
-			my ($short_req) = $req =~ m/^(.*?)\n/s;
 			my $summary = sprintf("%.5f/%d (%.5f avg)", $stats->{total_duration}, $stats->{count}, $stats->{total_duration} / $stats->{count});
 			push(@lines, $req, $summary);
 			$requests += $stats->{count};
@@ -50,7 +71,7 @@ sub run {
 		$panel->nav_subtitle($summary);
 
 		$panel->content(
-			$self->render_list_pairs(\@lines)
+			$self->render($lwp_template, { list => \@lines })
 		);
 	};
 }
