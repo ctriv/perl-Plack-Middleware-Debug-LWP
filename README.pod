@@ -6,7 +6,7 @@ Plack::Middleware::Debug::LWP - LWP Profiling Panel
 
 =head1 VERSION
 
-version 0.2
+version 0.3
 
 =head1 SYNOPSIS
 
