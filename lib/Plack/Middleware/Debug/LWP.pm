@@ -56,7 +56,7 @@ sub run {
 		my $profile = LWPx::Profile::stop_profiling();
 		
 		my @lines;
-		my ($time, $requests);
+		my ($time, $requests) = (0, 0);
 		
 		for my $req (sort {
 			$profile->{$a}->{time_of_first_sample} <=> $profile->{$b}->{time_of_first_sample}
